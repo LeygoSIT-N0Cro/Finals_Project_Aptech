@@ -1,26 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap');
 
 :root {
-  --purple: #534AB7;
-  --purple-light: #EEEDFE;
-  --purple-dark: #3C3489;
-  --teal: #1D9E75;
-  --teal-light: #E1F5EE;
-  --coral: #D85A30;
-  --coral-light: #FAECE7;
-  --amber: #BA7517;
-  --amber-light: #FAEEDA;
-  --text: #2C2C2A;
-  --text-muted: #888780;
-  --bg: #F8F7F4;
+  --teal: #5DCAA5;
+  --teal-dark: #3AAE8A;
+  --teal-light: #F0FBF8;
+  --teal-mid: #D4F2EA;
+  --pink: #F9A8C9;
+  --pink-light: #FEF6FA;
+  --pink-mid: #FAE0EE;
+  --text: #3D5A5A;
+  --text-muted: #9BBCBB;
+  --bg: #FAFEFE;
   --surface: #FFFFFF;
-  --border: #E5E4DF;
-  --border-strong: #CCCBC6;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
+  --border: #EAF7F4;
+  --border-strong: #D0EEE8;
+  --shadow-sm: 0 1px 4px rgba(93,202,165,0.08), 0 1px 2px rgba(0,0,0,0.03);
+  --shadow-md: 0 4px 16px rgba(93,202,165,0.10), 0 2px 4px rgba(0,0,0,0.03);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
   font-family: 'DM Sans', sans-serif;
   font-size: 15px;
   color: var(--text);
@@ -29,18 +27,18 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #F1EFE8;
-    --text-muted: #888780;
-    --bg: #17171A;
-    --surface: #1F2028;
-    --border: #2E303A;
-    --border-strong: #3E404A;
-    --purple-light: rgba(83,74,183,0.15);
-    --teal-light: rgba(29,158,117,0.15);
-    --coral-light: rgba(216,90,48,0.15);
-    --amber-light: rgba(186,117,23,0.15);
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
-    --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+    --text: #D6F5EF;
+    --text-muted: #6B9E9B;
+    --bg: #0D1F1F;
+    --surface: #132828;
+    --border: #1E3D3D;
+    --border-strong: #2A5050;
+    --teal-light: rgba(93,202,165,0.08);
+    --teal-mid: rgba(93,202,165,0.15);
+    --pink-light: rgba(249,168,201,0.08);
+    --pink-mid: rgba(249,168,201,0.15);
+    --shadow-sm: 0 1px 4px rgba(0,0,0,0.4);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.5);
   }
 }
 
