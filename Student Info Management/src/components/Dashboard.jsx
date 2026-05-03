@@ -1,27 +1,60 @@
-
-
 export default function Dashboard({ students = [] }) {
   const total = students.length
+  const regular = students.filter(s => s.studentType === 'regular').length
+  const irregular = students.filter(s => s.studentType === 'irregular').length
+
   const byProgram = students.reduce((acc, s) => {
-    const k = s.program || 'Unassigned'
+    const k = s.program?.trim() || 'Unassigned'
     acc[k] = (acc[k] || 0) + 1
     return acc
   }, {})
 
+  const programEntries = Object.entries(byProgram).sort((a, b) => b[1] - a[1])
+  const maxCount = programEntries[0]?.[1] || 1
+  const barColors = ['#534AB7', '#1D9E75', '#D85A30', '#BA7517', '#3C3489']
+
   return (
-    <div className="dashboard">
-      <h2>Admin Dashboard</h2>
-      <p>Total students: <strong>{total}</strong></p>
+    <div>
+      <div className="dash-stats">
+        <div className="dash-card">
+          <div className="dash-card-num purple-num">{total}</div>
+          <div className="dash-card-label">Total students</div>
+        </div>
+        <div className="dash-card">
+          <div className="dash-card-num teal-num">{regular}</div>
+          <div className="dash-card-label">Regular</div>
+        </div>
+        <div className="dash-card">
+          <div className="dash-card-num coral-num">{irregular}</div>
+          <div className="dash-card-label">Irregular</div>
+        </div>
+      </div>
 
-      <h3>By Program</h3>
-      <ul>
-        {Object.entries(byProgram).map(([prog, count]) => (
-          <li key={prog}>{prog}: {count}</li>
-        ))}
-      </ul>
+      {programEntries.length > 0 ? (
+        <>
+          <div className="dash-section-title">Students by program</div>
+          {programEntries.map(([prog, count], i) => (
+            <div className="prog-row" key={prog}>
+              <div className="prog-name" title={prog}>{prog}</div>
+              <div className="prog-bar-bg">
+                <div className="prog-bar-fill" style={{
+                  width: `${(count / maxCount) * 100}%`,
+                  background: barColors[i % barColors.length],
+                }} />
+              </div>
+              <div className="prog-count">{count}</div>
+            </div>
+          ))}
+        </>
+      ) : (
+        <div style={{ color: 'var(--text-muted)', fontSize: '13px' }}>
+          No program data yet — add students to see the breakdown.
+        </div>
+      )}
 
-      <h3>Roles & Access</h3>
-      <p>Simple local app — no users yet. Integrate auth for role management.</p>
+      <div className="dash-note">
+        This is a local app — data is saved in your browser. No login or server required.
+      </div>
     </div>
   )
 }
