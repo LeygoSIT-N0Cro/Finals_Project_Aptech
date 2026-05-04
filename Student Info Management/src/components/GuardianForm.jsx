@@ -1,3 +1,7 @@
+// GuardianForm.jsx
+// Reusable form sub-component for guardian information.
+// Controlled by parent via the `guardian` prop and `onChange` callback.
+
 export default function GuardianForm({ guardian = {}, onChange = () => {} }) {
   function handle(e) {
     const { name, value } = e.target

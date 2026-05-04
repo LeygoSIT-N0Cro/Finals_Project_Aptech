@@ -1,3 +1,7 @@
+// StudentList.jsx
+// Displays all enrolled students in a table.
+// Supports edit and delete actions via parent callbacks.
+
 export default function StudentList({ students = [], onEdit = () => {}, onDelete = () => {} }) {
   if (!students.length) {
     return (

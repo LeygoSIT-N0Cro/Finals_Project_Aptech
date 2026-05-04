@@ -1,3 +1,9 @@
+// AcademicForm.jsx
+// Handles both adding new students and editing existing ones.
+// Switches between add/edit mode based on the `editing` prop.
+// Embeds GuardianForm as a sub-form inside a fieldset.
+
+
 import { useEffect, useState, useMemo } from 'react'
 import GuardianForm from './GuardianForm'
 

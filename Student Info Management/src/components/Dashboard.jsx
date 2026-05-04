@@ -1,3 +1,7 @@
+// Dashboard.jsx
+// Shows an overview of student enrollment statistics.
+// Displays total count, breakdown by type, and a bar chart by program.
+
 export default function Dashboard({ students = [] }) {
   const total = students.length
   const regular = students.filter(s => s.studentType === 'regular').length
