@@ -1,6 +1,5 @@
 // main.jsx
-// Application entry point.
-// Sets up React Router with protected and public routes.
+// Application entry point with routing and error boundary.
 
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
@@ -9,27 +8,25 @@ import './index.css'
 import LoginPage from './pages/LoginPage'
 import StudentsPage from './pages/StudentsPage'
 import ProtectedRoute from './router/ProtectedRoute'
+import ErrorBoundary from './components/ErrorBoundary'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        {/* Default route redirects to login */}
-        <Route path="/" element={<Navigate to="/login" replace />} />
-
-        {/* Public route — accessible without login */}
-        <Route path="/login" element={<LoginPage />} />
-
-        {/* Protected route — requires login to access */}
-        <Route
-          path="/students"
-          element={
-            <ProtectedRoute>
-              <StudentsPage />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/students"
+            element={
+              <ProtectedRoute>
+                <StudentsPage />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </ErrorBoundary>
   </StrictMode>
 )

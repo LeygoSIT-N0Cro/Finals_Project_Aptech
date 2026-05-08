@@ -1,6 +1,5 @@
 // Dashboard.jsx
 // Shows an overview of student enrollment statistics.
-// Displays total count, breakdown by type, and a bar chart by program.
 
 export default function Dashboard({ students = [] }) {
   const total = students.length
@@ -15,7 +14,7 @@ export default function Dashboard({ students = [] }) {
 
   const programEntries = Object.entries(byProgram).sort((a, b) => b[1] - a[1])
   const maxCount = programEntries[0]?.[1] || 1
-  const barColors = ['#534AB7', '#1D9E75', '#D85A30', '#BA7517', '#3C3489']
+  const barColors = ['#5DCAA5', '#1D9E75', '#F9A8C9', '#BA7517', '#3AAE8A']
 
   return (
     <div>
@@ -57,7 +56,7 @@ export default function Dashboard({ students = [] }) {
       )}
 
       <div className="dash-note">
-        This is a local app — data is saved in your browser. No login or server required.
+        This is a local app — data is saved via json-server. Make sure the server is running.
       </div>
     </div>
   )

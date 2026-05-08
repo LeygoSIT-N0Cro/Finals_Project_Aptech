@@ -1,6 +1,5 @@
 // StudentList.jsx
 // Displays all enrolled students in a table.
-// Supports edit and delete actions via parent callbacks.
 
 export default function StudentList({ students = [], onEdit = () => {}, onDelete = () => {} }) {
   if (!students.length) {
@@ -18,12 +17,8 @@ export default function StudentList({ students = [], onEdit = () => {}, onDelete
       <table className="student-table">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Program</th>
-            <th>Year / Grade</th>
-            <th>Type</th>
-            <th>Guardian</th>
-            <th>Actions</th>
+            <th>Name</th><th>Program</th><th>Year / Grade</th>
+            <th>Type</th><th>Guardian</th><th>Actions</th>
           </tr>
         </thead>
         <tbody>

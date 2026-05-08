@@ -1,0 +1,23 @@
+{
+  "students": [
+    {
+      "id": "JMHbTATOhzI",
+      "firstName": "Mark",
+      "lastName": "Leygo",
+      "dob": "2007-09-09",
+      "admissionNo": "0001",
+      "classGrade": "1st year",
+      "program": "BSCS",
+      "track": "",
+      "studentType": "regular",
+      "guardian": {
+        "name": "",
+        "phone": "",
+        "email": "",
+        "relationship": ""
+      }
+    }
+  ],
+  "loginRecords": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}

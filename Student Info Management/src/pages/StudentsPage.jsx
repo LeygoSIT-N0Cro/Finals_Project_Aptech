@@ -11,7 +11,7 @@ import useStudents from '../hooks/useStudents'
 
 export default function StudentsPage() {
   // Use our custom hook for all student data logic
-  const { students, addStudent, updateStudent, removeStudent } = useStudents()
+  const { students, loading, error, addStudent, updateStudentById, removeStudent } = useStudents()
 
   // Track which student is being edited (null = add mode)
   const [editing, setEditing] = useState(null)
@@ -35,10 +35,10 @@ export default function StudentsPage() {
 
   // Update student then switch to list view
   function handleUpdate(id, updates) {
-    updateStudent(id, updates)
-    setEditing(null)
-    setActiveTab('list')
-  }
+  updateStudentById(id, updates)
+  setEditing(null)
+  setActiveTab('list')
+}
 
   // Set the student to edit and switch to form tab
   function handleEdit(student) {
@@ -60,7 +60,20 @@ export default function StudentsPage() {
 
   return (
     <div className="app-wrapper">
+        {loading && (
+        <div style={{ textAlign: 'center', padding: '2rem', color: 'var(--text-muted)' }}>
+          Loading students...
+        </div>
+      )}
 
+      {error && (
+        <div style={{ textAlign: 'center', padding: '1rem', color: 'var(--pink)', fontSize: '13px' }}>
+          ⚠️ {error} — make sure json-server is running.
+        </div>
+      )}
+
+      {/* rest of your code continues here... */}
+      <div className="topbar"></div>
       {/* ── Top bar with branding and stats ── */}
       <div className="topbar">
         <div className="brand">
